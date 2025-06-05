@@ -33,7 +33,20 @@ The following diagram shows how automatic discovery finds data sources:
       
       X --> Y --> Z
 
+
+
+.. raw:: html
+
+   <div class="include-start" id="gdi/auto-discovery-intro.rst"></div>
+
 .. include:: /_includes/gdi/auto-discovery-intro.rst
+
+.. raw:: html
+
+   <div class="include-stop" id="gdi/auto-discovery-intro.rst"></div>
+
+
+
 
 .. raw:: html
   
@@ -62,7 +75,7 @@ Automatic discovery of third-party applications is supported in Linux and Kubern
      - Oracle DB receiver. See :ref:`oracledb`
 
    * - NGINX
-     - Smart Agent with collectd/nginx monitor type. See :ref:`nginx`
+     - NGINX receiver. See :ref:`nginx-receiver`
 
    * - RabbitMQ
      - RabbitMQ receiver. See :ref:`rabbitmq-receiver`.
@@ -83,6 +96,17 @@ Read more:
 
 * Linux: :ref:`linux-third-party`
 * Kubernetes: :ref:`k8s-third-party`
+
+.. raw:: html
+  
+  <h3>Discovered services in the UI</h3>
+
+If you're in a Kubernetes environment and are using the Collector version 0.109.0 or higher, log in to Splunk Observability Cloud and go to the :guilabel:`Discovered services` tab in the :guilabel:`Data Management` menu to see which of your services and third-party applications the Collector has detected and can monitor automatically.  
+
+.. image:: /_images/gdi/gdi-discovered-services-tab.jpg
+  :width: 80%
+  :alt: Discovered services tab
+
 
 .. raw:: html
 

@@ -47,7 +47,7 @@ Use the host monitoring (agent) mode when you want to do these things:
 Data forwarding (gateway) mode
 ======================================================================
 
-Data forwarding (gateway) mode is typically deployed per cluster, data center, or region. The Collector in gateway mode collects data from one or more Collectors running in standalone agent mode and sends it to Splunk Observability Cloud. For the default gateway config file see :new-page:`data forwarding (gateway) mode configuration in GitHub <https://github.com/signalfx/splunk-otel-collector/blob/main/cmd/otelcol/config/collector/gateway_config.yaml>`.
+Data forwarding (gateway) mode is typically deployed per cluster, data center, or region. A Collector in gateway mode collects data both from Kubernetes and from one or more Collectors running in standalone agent mode and sends it to Splunk Observability Cloud. For the default gateway config file see :new-page:`data forwarding (gateway) mode configuration in GitHub <https://github.com/signalfx/splunk-otel-collector/blob/main/cmd/otelcol/config/collector/gateway_config.yaml>`.
 
 The following image shows the architecture for the data forwarding (gateway) mode:
 
@@ -73,6 +73,8 @@ The following image shows the architecture for the data forwarding (gateway) mod
 
 When to use data forwarding (gateway) mode
 -------------------------------------------------------------------------------
+
+While optional, the Collector in gateway mode is beneficial for large-scale Kubernetes deployments, and you might consider adding a gateway Collector in big clusters. There isn't a strict rule for defining a large-scale Kubernetes setup due to varying host specifications, host and node numbers, and telemetry volume, although 25 hosts is sometimes considered the limit for a small environment. 
 
 Use data forwarding (gateway) mode when you want to do one of the following:
 
@@ -116,10 +118,10 @@ The Collector for Kubernetes has different deployment options. You can configure
 
 The main deployment modes are:
 
-* Default, which includes the ``agent`` deamonset and the ``clusterReceiver`` deployment component.
-* All collector modes, which includes ``agent`` deamonset, and the ``clusterReceiver`` and the ``gateway`` components.
+* Default, which includes the ``agent`` DaemonSet and the ``clusterReceiver`` deployment component.
+* All collector modes, which includes ``agent`` DaemonSet, and the ``clusterReceiver`` and the ``gateway`` components.
 
-By default, the ``agent`` daemonset deploys a pod running the OpenTelemetry Collector agent in each node of your Kubernetes cluster. The agent pods gather data from your applications, services, and other objects running in their respective nodes, then send the data to Splunk Observability Cloud.
+By default, the ``agent`` DaemonSet deploys a pod running the OpenTelemetry Collector agent in each node of your Kubernetes cluster. The agent pods gather data from your applications, services, and other objects running in their respective nodes, then send the data to Splunk Observability Cloud.
 
 .. image:: /_images/gdi/k8s-daemonset.png
    :width: 40%
@@ -263,9 +265,9 @@ To set the Collector in data forwarding (gateway) mode to receiving data from an
 
    exporters:
       # Traces (Agent)
-      sapm:
+      otlphttp:
          access_token: "${SPLUNK_ACCESS_TOKEN}"
-         endpoint: "https://ingest.${SPLUNK_REALM}.signalfx.com/v2/trace"
+         endpoint: "https://ingest.${SPLUNK_REALM}.signalfx.com/v2/trace/otlp"
       # Metrics + Events (Agent)
       signalfx:
          access_token: "${SPLUNK_ACCESS_TOKEN}"
@@ -285,7 +287,7 @@ To set the Collector in data forwarding (gateway) mode to receiving data from an
             processors:
             - memory_limiter
             - batch
-            exporters: [sapm]
+            exporters: [otlphttp]
          metrics:
             receivers: [otlp]
             processors: [memory_limiter, batch]
@@ -317,9 +319,9 @@ If you want to use the :ref:`signalfx-exporter` for metrics on both agent and ga
 
    exporters:
       # Traces
-      sapm:
+      otlphttp:
          access_token: "${SPLUNK_ACCESS_TOKEN}"
-         endpoint: "https://ingest.${SPLUNK_REALM}.signalfx.com/v2/trace"
+         traces_endpoint: "https://ingest.${SPLUNK_REALM}.signalfx.com/v2/trace/otlp"
       # Metrics + Events (Agent)
       signalfx:
          access_token: "${SPLUNK_ACCESS_TOKEN}"
@@ -340,7 +342,7 @@ If you want to use the :ref:`signalfx-exporter` for metrics on both agent and ga
             processors:
             - memory_limiter
             - batch
-            exporters: [sapm]
+            exporters: [otlphttp]
          metrics:
             receivers: [signalfx]
             processors: [memory_limiter, batch]

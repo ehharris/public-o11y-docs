@@ -7,7 +7,7 @@ Configure the Collector for Kubernetes with Helm: Add components and data source
 .. meta::
       :description: Optional configurations for the Splunk Distribution of OpenTelemetry Collector for Kubernetes: Add components or new data sources.
 
-Read on to learn how to add additional components or data sources to your Collector for Kubernetes config.
+Read on to learn how to add additional components or data sources to your Collector for Kubernetes config. To create new receivers at runtime see :ref:`receiver-creator-receiver`.   
 
 For other config options, see:
 
@@ -15,7 +15,7 @@ For other config options, see:
 * :ref:`discovery-mode-k8s`
 * :ref:`kubernetes-config-logs`
 * :ref:`otel-kubernetes-config-advanced`
-
+  
 For a practical example of how to configure the Collector for Kubernetes see :ref:`about-collector-configuration-tutorial-k8s`.
 
 .. _otel-kubernetes-config-add-components:
@@ -67,7 +67,7 @@ This example shows how to add the :ref:`mysql-receiver` to your configuration fi
 Add the MySQL receiver in the ``agent`` section
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To use the Collector agent daemonset to collect ``mysql`` metrics from every node the agent is deployed to, add this to your configuration:
+To use the Collector agent DaemonSet to collect ``mysql`` metrics from every node the agent is deployed to, add this to your configuration:
 
 .. code:: yaml
 
@@ -100,7 +100,7 @@ This example shows how to add the :ref:`rabbitmq` integration to your configurat
 Add RabbitMQ in the ``agent`` section
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If you want to activate the RabbitMQ monitor in the Collector agent daemonset, add ``mysql`` to the ``receivers`` section of your agent section in the configuration file:
+If you want to activate the RabbitMQ monitor in the Collector agent DaemonSet, add ``mysql`` to the ``receivers`` section of your agent section in the configuration file:
 
 .. code:: yaml
 

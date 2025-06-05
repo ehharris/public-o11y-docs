@@ -14,6 +14,7 @@ Splunk On-Call integrations
    alertsite-integration
    appdynamics-integration
    appoptics-integration
+   arista-cloudvision-integration
    atatus-integration
    aws-cloudwatch-integration-guide
    azure-monitoring-integration-guide
@@ -68,7 +69,6 @@ Splunk On-Call integrations
    logz-io-integration
    mailhop-integration
    manage-splunk-oncall-using-terraform
-   microsoft-azure-oms-integration-guide-victorops
    microsoft-scom-integration
    microsoft-teams-integration-guide
    nagios-integration-guide
@@ -109,7 +109,6 @@ Splunk On-Call integrations
    solarwinds-integration
    splunk-integration-guide
    splunk-synthetic-monitoring-integration-guide
-   splunking-victorops-data
    statuscast-integration-guide
    statushub-integration-guide
    statuspage-integration

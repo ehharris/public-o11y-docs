@@ -7,7 +7,20 @@ Instrument your Python application for Splunk Observability Cloud
 .. meta::
    :description: The Splunk OpenTelemetry Python agent can automatically instrument your Python application or service. Follow these steps to get started.
 
+
+
+.. raw:: html
+
+   <div class="include-start" id="zero-code-info.rst"></div>
+
 .. include:: /_includes/zero-code-info.rst
+
+.. raw:: html
+
+   <div class="include-stop" id="zero-code-info.rst"></div>
+
+
+
 
 The Python agent from the Splunk Distribution of OpenTelemetry Python can automatically instrument your Python application by dynamically patching supported libraries.
 
@@ -61,9 +74,9 @@ Follow these steps to automatically instrument your application using the Python
 
    .. code-block:: bash
 
-      splunk-py-trace-bootstrap
+      opentelemetry-bootstrap
 
-   To print the instrumentation packages to the console instead of installing them, run ``splunk-py-trace-bootstrap --action=requirements``. You can then add the output to your requirements or Pipfile.
+   To print the instrumentation packages to the console instead of installing them, run ``opentelemetry-bootstrap --action=requirements``. You can then add the output to your requirements or Pipfile.
 
 #. Set the ``OTEL_SERVICE_NAME`` environment variable:
 
@@ -109,11 +122,11 @@ Follow these steps to automatically instrument your application using the Python
 
          python3 main.py --port=8000
 
-   prefix the command with ``splunk-py-trace``:
+   prefix the command with ``opentelemetry-instrument``:
 
       .. code-block:: bash
 
-         splunk-py-trace python3 main.py --port=8000
+         opentelemetry-instrument python3 main.py --port=8000
 
    .. note:: To instrument uWSGI applications, see :ref:`python-manual-instrumentation`.
 
@@ -201,7 +214,7 @@ The following example shows how to update a deployment to expose environment var
 Send data directly to Splunk Observability Cloud
 ==========================================================
 
-By default, the agent sends all telemetry to the local instance of the Splunk Distribution of OpenTelemetry Collector.
+By default, the agent sends all telemetry to the local instance of the Splunk Distribution of the OpenTelemetry Collector.
 
 To send data directly to Splunk Observability Cloud, set the following environment variables:
 
@@ -228,7 +241,20 @@ To find your Splunk realm, see :ref:`Note about realms <about-realms>`.
 Specify the source host
 ----------------------------------------------------
 
+
+
+.. raw:: html
+
+   <div class="include-start" id="gdi/apm-api-define-host.rst"></div>
+
 .. include:: /_includes/gdi/apm-api-define-host.rst
+
+.. raw:: html
+
+   <div class="include-stop" id="gdi/apm-api-define-host.rst"></div>
+
+
+
 
 .. _instrument_aws_python_functions:
 

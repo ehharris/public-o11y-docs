@@ -82,21 +82,30 @@ Populate values.yaml with the following fields and values:
   operator:
     enabled: true
 
+  # Installs the Custom Resource Definitions (CRDs) required by the operator
+  # Must be set unless CRDs are pre-installed manually
+  operatorcrds: 
+    install: true
+  
 You might need to populate the file with additional values depending on your environment. See :ref:`k8s-auto-discovery-add-certificates` and :ref:`k8s-auto-discovery-setup-traces` for more information.
 
 .. _k8s-auto-discovery-add-certificates:
 
-Add certificates
-----------------------------------------
+Add certificates and OpenTelemetry CRDs
+------------------------------------------
 
-The Operator requires certain TLS certificates to work. Use the following command to check whether a certification manager is available:
+The Operator requires certain TLS certificates to work. Use the following command to check whether a certificate manager is available:
 
 .. code-block:: yaml
 
    # Check if cert-manager is already installed, don't deploy a second cert-manager.
-   kubectl get pods -l app=cert-manager --all-namespaces
+   kubectl get pods -l app=certmanager --all-namespaces
 
-If a certification manager isn't available in the cluster, then you'll need to add ``certmanager.enabled=true`` to your values.yaml file. For example:
+If a certificate manager isn't available in the cluster, add ``certmanager.enabled=true`` to your values.yaml file. 
+
+The Operator for Kubernetes also requires you to install OpenTelemetry Custom Resource Definitions (CRDs). To do this, add ``operatorcrds.install=true`` to your values.yaml file.
+
+The following example YAML includes ``certmanager.enabled=true`` and ``operatorcrds.install=true``:
 
 .. code-block:: yaml
   :emphasize-lines: 7,8
@@ -111,6 +120,8 @@ If a certification manager isn't available in the cluster, then you'll need to a
     enabled: true
   operator:
     enabled: true
+  operatorcrds:
+    install: true
 
 .. _k8s-auto-discovery-setup-traces:
 
@@ -133,8 +144,8 @@ To properly ingest trace telemetry data, the attribute ``deployment.environment`
   * - Through the values.yaml file and ``instrumentation.env`` or ``instrumentation.{instrumentation_library}.env`` configuration
     - Allows you to set ``deployment.environment`` either for all auto-instrumented applications collectively or per auto-instrumentation language.
     - Add the ``OTEL_RESOURCE_ATTRIBUTES`` environment variable, setting its value to ``deployment.environment=prd``.
-  * - Through your Kubernetes application deployment, daemonset, or pod specification
-    - Allows you to set ``deployment.environment`` at the level of individual deployments, daemonsets, or pods.
+  * - Through your Kubernetes application deployment, DaemonSet, or pod specification
+    - Allows you to set ``deployment.environment`` at the level of individual deployments, DaemonSets, or pods.
     - Employ the ``OTEL_RESOURCE_ATTRIBUTES`` environment variable, assigning the value ``deployment.environment=prd``.
 
 The following examples show how to set the attribute using each method:
@@ -159,6 +170,8 @@ The following examples show how to set the attribute using each method:
           
           certmanager:
             enabled: true
+          operatorcrds:
+            install: true
           operator:
             enabled: true
 
@@ -168,6 +181,8 @@ The following examples show how to set the attribute using each method:
 
       .. code-block:: yaml
 
+          operatorcrds:
+            install: true
           operator:
             enabled: true
           instrumentation:
@@ -269,7 +284,7 @@ The instrumentation in the collector namespace must include the following:
 Set annotations to instrument applications
 ==============================================================
 
-If the related Kubernetes object (deployment, daemonset, or pod) is not deployed, add the ``instrumentation.opentelemetry.io/inject-java`` annotation to the application object YAML.
+If the related Kubernetes object (deployment, DaemonSet, or pod) is not deployed, add the ``instrumentation.opentelemetry.io/inject-java`` annotation to the application object YAML.
 
 The annotation you set depends on the language runtime you're using. You can set multiple annotations in the same Kubernetes object. See the following available annotations:
 
@@ -612,7 +627,20 @@ See :ref:`k8s-advanced-auto-discovery-config` for more information.
 
 .. _troubleshooting-k8s-auto-discovery:
 
+
+
+.. raw:: html
+
+   <div class="include-start" id="gdi/troubleshoot-zeroconfig-k8s.rst"></div>
+
 .. include:: /_includes/gdi/troubleshoot-zeroconfig-k8s.rst
+
+.. raw:: html
+
+   <div class="include-stop" id="gdi/troubleshoot-zeroconfig-k8s.rst"></div>
+
+
+
 
 To troubleshoot common errors that occur when instrumenting applications, see the following guides:
 

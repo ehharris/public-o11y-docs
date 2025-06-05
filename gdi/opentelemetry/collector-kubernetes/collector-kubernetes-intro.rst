@@ -43,8 +43,6 @@ To install the Splunk Distribution of the OpenTelemetry Collector for Kubernetes
 * :ref:`kubernetes-helm-architecture`
 * :ref:`kubernetes-helm-releases`
 
-.. note:: By default you'll obtain these :ref:`Kubernetes metrics <ootb-metrics-k8s>`. 
-
 Optionally, you can also:
 
 * :ref:`otel-install-k8s-manifests`
@@ -66,7 +64,28 @@ To configure the Collector see:
 * :ref:`kubernetes-config-logs`
 * :ref:`otel-kubernetes-config-advanced`
 
+.. raw:: html
+
+   <div class="include-start" id="gdi/collector-common-options.rst"></div>
+
 .. include:: /_includes/gdi/collector-common-options.rst
+
+.. raw:: html
+
+   <div class="include-stop" id="gdi/collector-common-options.rst"></div>
+
+.. raw:: html
+
+  <embed>
+    <h2>Metrics and other telemetry<a name="k8s-metrics" class="headerlink" href="#k8s-metrics" title="Permalink to this headline">¶</a></h2>
+  </embed>
+
+If you use the default configuration for the Splunk Distribution of the Collector you'll obtain these :ref:`Kubernetes metrics <ootb-metrics-k8s>`. 
+
+To obtain additional telemetry from other sources see:
+
+* :ref:`kubernetes-config-add`
+* :ref:`receiver-creator-receiver` to create new receivers at runtime  
 
 .. raw:: html
 

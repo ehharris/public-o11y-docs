@@ -119,7 +119,7 @@ Splunk Observability Cloud also imports metrics, metadata, and logs for some of 
       - :strong:`Description`
 
    *  - :ref:`get-started-k8s`
-      - :ref:`infrastructure-k8s`
+      - :ref:`infrastructure-k8s-nav`
       - Import metrics and logs from Kubernetes clusters running in EC2 instances or EKS.
 
    *  -  - :ref:`get-started-linux`
@@ -188,7 +188,20 @@ See how to filter data at :ref:`aws-control-example`.
 Unsupported characters for tags 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+
+
+.. raw:: html
+
+   <div class="include-start" id="gdi/aws-unsupported-chars.rst"></div>
+
 .. include:: /_includes/gdi/aws-unsupported-chars.rst
+
+.. raw:: html
+
+   <div class="include-stop" id="gdi/aws-unsupported-chars.rst"></div>
+
+
+
 
 .. _api-filters:
 

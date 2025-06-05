@@ -432,7 +432,7 @@ By default, data is persisted in the ``/var/addon/splunk/exporter_queue`` direct
 
 Check the :new-page:`Data Persistence in the OpenTelemetry Collector <https://community.splunk.com/t5/Community-Blog/Data-Persistence-in-the-OpenTelemetry-Collector/ba-p/624583>` for a detailed explantion.
 
-.. note:: Data can only be persisted for agent daemonsets.
+.. note:: Data can only be persisted for agent DaemonSets.
 
 Config examples
 -----------------------------------------------------------------------------
@@ -503,32 +503,3 @@ Cluster Receiver support
 The Cluster receiver is a 1-replica deployment of the OpenTelemetry Collector. Because the Kubernetes control plane can select any available node to run the cluster receiver pod (unless ``clusterReceiver.nodeSelector`` is explicitly set to pin the pod to a specific node), ``hostPath`` or ``local`` volume mounts don't work for such environments.
 
 Data persistence is currently not applicable to the Kubernetes cluster metrics and Kubernetes events.
-
-Monitor OpenShift infrastructure nodes
-============================================
-
-By default, the Splunk Distribution of OpenTelemetry Collector for Kubernetes doesn't collect data from OpenShift infrastructure nodes. 
-
-You can customize the Collector Helm Chart file to activate data collection from OpenShift infrastructure nodes. To do so, complete the following steps:
-
-#. Open your values.yaml file for the Helm Chart.
-#. Copy and paste the following YAML snippet into the values.yaml file:
-
-    .. code-block:: yaml
-
-      tolerations:
-        - key: node-role.kubernetes.io/master
-          effect: NoSchedule
-        - key: node-role.kubernetes.io/control-plane
-          effect: NoSchedule
-        - key: node-role.kubernetes.io/infra
-          effect: NoSchedule
-          operator: Exists
-
-#. Install the Collector using the Helm Chart:
-
-    .. code-block:: bash
-
-      helm install my-splunk-otel-collector --values values.yaml splunk-otel-collector-chart/splunk-otel-collector
-
-.. note:: Monitoring OpenShift infrastructure nodes might pose a security risk depending on which method you used to create the Kubernetes environment.

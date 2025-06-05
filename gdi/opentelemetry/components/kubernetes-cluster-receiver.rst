@@ -102,17 +102,43 @@ The following table shows the configuration options for the receiver:
 Metrics
 =====================
 
-The following metrics, resource attributes, and attributes are available.
+.. caution:: The SignalFx exporter excludes some available metrics by default. Learn more about default metric filters in :ref:`list-excluded-metrics`. See :ref:`ootb-metrics-k8s` to see how the Collector processes Kubernetes metrics.
 
-.. note:: The SignalFx exporter excludes some available metrics by default. Learn more about default metric filters in :ref:`list-excluded-metrics`. See :ref:`ootb-metrics-k8s` to see how the Collector processes Kubernetes metrics.
+The following metrics, resource attributes, and attributes are available. For more information, including which resource attributes are included by default, refer to :new-page:`Kubernetes Cluster receiver metadata <https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/03e370a1bfbe8fbd24b0cc35c0756c8ba688e46c/receiver/k8sclusterreceiver/metadata.yaml>` in GitHub.
 
 .. raw:: html
 
    <div class="metrics-component" category="included" url="https://raw.githubusercontent.com/splunk/collector-config-tools/main/metric-metadata/k8sclusterreceiver.yaml"></div>
 
+
+
+.. raw:: html
+
+   <div class="include-start" id="activate-deactivate-native-metrics.rst"></div>
+
 .. include:: /_includes/activate-deactivate-native-metrics.rst
+
+.. raw:: html
+
+   <div class="include-stop" id="activate-deactivate-native-metrics.rst"></div>
+
+
+
 
 Troubleshooting
 ======================
 
+
+
+.. raw:: html
+
+   <div class="include-start" id="troubleshooting-components.rst"></div>
+
 .. include:: /_includes/troubleshooting-components.rst
+
+.. raw:: html
+
+   <div class="include-stop" id="troubleshooting-components.rst"></div>
+
+
+

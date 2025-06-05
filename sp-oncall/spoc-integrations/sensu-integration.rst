@@ -70,8 +70,6 @@ Splunk On-Call Handler
    #
    # Released under the same terms as Sensu (the MIT license); see LICENSE
    # for details.
-   # Downloaded from:
-   # https://help.victorops.com/knowledge-base/victorops-sensu-integration/#
    
    require 'rubygems' if RUBY_VERSION < '1.9.0'
    require 'sensu-handler'
@@ -138,5 +136,5 @@ Splunk On-Call Handler
    end
    end
 
-For more information, see :new-page:`Sensu documentation on Handlers <https://sensuapp.org/docs/0.29/reference/handlers.html#handler-definition-specification>`.
+For more information, see search "handlers" on the Sensu documentation website. 
 

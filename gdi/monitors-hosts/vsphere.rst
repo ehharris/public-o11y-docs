@@ -23,17 +23,56 @@ vCenter 6.5, 6.7, and 7.0. While this monitor might work with vCenter
 Benefits
 --------
 
+
+
+.. raw:: html
+
+   <div class="include-start" id="benefits.rst"></div>
+
 .. include:: /_includes/benefits.rst
+
+.. raw:: html
+
+   <div class="include-stop" id="benefits.rst"></div>
+
+
+
 
 Installation
 ------------
 
+
+
+.. raw:: html
+
+   <div class="include-start" id="collector-installation.rst"></div>
+
 .. include:: /_includes/collector-installation.rst
+
+.. raw:: html
+
+   <div class="include-stop" id="collector-installation.rst"></div>
+
+
+
 
 Configuration
 -------------
 
+
+
+.. raw:: html
+
+   <div class="include-start" id="configuration.rst"></div>
+
 .. include:: /_includes/configuration.rst
+
+.. raw:: html
+
+   <div class="include-stop" id="configuration.rst"></div>
+
+
+
 
 Example
 ~~~~~~~
@@ -84,8 +123,8 @@ See the following example with extended config options:
 Configuration settings
 ~~~~~~~~~~~~~~~~~~~~~~
 
-The following table shows the configuration options for the ``vsphere``
-monitor:
+The following table shows the main configuration options for the ``vsphere``
+monitor. For more settings see :new-page:`vSphere monitor <https://github.com/signalfx/signalfx-agent/blob/main/docs/monitors/vsphere.md>` in GitHub.
 
 .. list-table::
    :widths: 18 18 18 18
@@ -116,12 +155,21 @@ monitor:
       - No
       - ``string``
       - vSphere username.
+
    - 
 
       - ``password``
       - No
       - ``string``
       - vSphere password.
+   - 
+
+      - ``filter``
+      - No
+      - ``string``
+      - * Limits the inventory traversed by the monitor. Leave blank or omit to traverse and get metrics for the entire vSphere inventory. Otherwise, this expression is evaluated per cluster. If ``true``, metrics are collected for the objects in the cluster, otherwise it's skipped. 
+        * The expression can use the variables ``Datacenter`` and ``Cluster``. For example, to collect metrics for a specific datacenter and cluster, use ``filter: "Datacenter == 'MyDatacenter' && Cluster == 'MyCluster'"``. 
+        * See :new-page:`expr <https://github.com/antonmedv/expr>` in GitHub for advanced syntax.
    - 
 
       - ``insecureSkipVerify``
@@ -206,9 +254,35 @@ The following metrics are available for this integration:
 Notes
 ~~~~~
 
+
+
+.. raw:: html
+
+   <div class="include-start" id="metric-defs.rst"></div>
+
 .. include:: /_includes/metric-defs.rst
+
+.. raw:: html
+
+   <div class="include-stop" id="metric-defs.rst"></div>
+
+
+
 
 Troubleshooting
 ---------------
 
+
+
+.. raw:: html
+
+   <div class="include-start" id="troubleshooting-components.rst"></div>
+
 .. include:: /_includes/troubleshooting-components.rst
+
+.. raw:: html
+
+   <div class="include-stop" id="troubleshooting-components.rst"></div>
+
+
+

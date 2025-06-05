@@ -14,7 +14,20 @@ Meet the following requirements to instrument .NET applications for Splunk Obser
 Ensure you are using supported .NET versions
 ==============================================================
 
+
+
+.. raw:: html
+
+   <div class="include-start" id="requirements/dotnet.rst"></div>
+
 .. include:: /_includes/requirements/dotnet.rst
+
+.. raw:: html
+
+   <div class="include-stop" id="requirements/dotnet.rst"></div>
+
+
+
 
 Dependencies
 ---------------
@@ -37,7 +50,7 @@ The Splunk Distribution of OpenTelemetry .NET instruments the following librarie
 
 .. _dotnet-otel-collector-requirement:
 
-Install and configure the Splunk Distribution of OpenTelemetry Collector
+Install and configure the Splunk Distribution of the OpenTelemetry Collector
 ======================================================================================================
 
 The Splunk Distribution of OpenTelemetry .NET exports application traces and spans to the Splunk Distribution of OpenTelemetry Collector, which also collects system metric data and logs, including profiling data.

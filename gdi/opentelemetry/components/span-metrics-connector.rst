@@ -70,7 +70,7 @@ Follow these steps to configure and activate the component:
 Sample configuration
 --------------------------------------------
 
-To activate the resource processor, add ``spanmetrics`` to the ``connectors`` section of your configuration file. 
+To activate the connector, add ``spanmetrics`` to the ``connectors`` section of your configuration file. 
 
 For example:
 
@@ -243,20 +243,22 @@ For example, the generated calls OTel sum metric can result in multiple Promethe
   target_info{job="shippingservice", instance="...", ...} 1
   calls_total{span_name="/Address", service_name="shippingservice", span_kind="SPAN_KIND_SERVER", status_code="STATUS_CODE_UNSET", ...} 142
 
-.. _span-metrics-connector-settings:
-
-Settings
-======================
-
-The following table shows the configuration options for the ``spanmetrics`` connector:
-
-.. raw:: html
-
-  <div class="metrics-standard" category="included" url="https://raw.githubusercontent.com/open-telemetry/opentelemetry-collector-contrib/main/connector/spanmetricsconnector/config.go"></div>
+.. _span-metrics-connector-troubleshooting:
 
 Troubleshooting
 ======================
 
+.. raw:: html
+
+   <div class="include-start" id="troubleshooting-components.rst"></div>
+
 .. include:: /_includes/troubleshooting-components.rst
+
+.. raw:: html
+
+   <div class="include-stop" id="troubleshooting-components.rst"></div>
+
+
+
 
 

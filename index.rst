@@ -242,7 +242,7 @@ Collect traces :ref:`get-started-ruby`
 .. rst-class:: newcard
 
 :strong:`Node.js`
-Collect traces :ref:`get-started-nodejs`
+Collect traces :ref:`get-started-nodejs-3x`
 
 .. rst-class:: newcard
 
@@ -279,19 +279,29 @@ To keep up to date with changes in the products, see the Splunk Observability Cl
    Overview <get-started/overview>
 
 .. toctree::
-   :maxdepth:   3
+   :maxdepth:   3  
 
    Architecture <get-started/o11y-architecture>
 
 .. toctree::
    :maxdepth: 3
 
-   Service description <get-started/service-description>
+   Get started guide for admins TOGGLE <get-started/get-started-guide/get-started-guide>
+
+.. toctree::
+   :maxdepth:   3
+
+   AI Assistant in Observability Cloud <get-started/o11y-ai>
+
+.. toctree::
+   :maxdepth:   3   
+
+   Prompt guide and library for AI Assistant in Observability Cloud <get-started/o11y-ai-promptlibrary>
 
 .. toctree::
    :maxdepth: 3
 
-   Get started guide for admins TOGGLE <get-started/get-started-guide/get-started-guide>
+   Service description <get-started/service-description>
 
 .. toctree::
    :maxdepth:   3
@@ -560,9 +570,9 @@ To keep up to date with changes in the products, see the Splunk Observability Cl
    Monitor Database Query Performance TOGGLE <apm/db-query-perf/db-query-performance>
 
 .. toctree::
-   :maxdepth:   3
+   :maxdepth:   4
 
-   Use Data Links to connect APM properties to relevant resources TOGGLE <apm/apm-data-links/data-links-landing>
+   Use data links to connect APM properties to relevant resources TOGGLE <apm/apm-data-links/data-links-landing>
 
 .. toctree::
    :maxdepth:   3
@@ -758,17 +768,17 @@ To keep up to date with changes in the products, see the Splunk Observability Cl
 .. toctree::
    :maxdepth:   3
 
-   Uptime Tests for port and HTTP TOGGLE <synthetics/uptime-test/uptime-test>
+   Uptime tests for port and HTTP TOGGLE <synthetics/uptime-test/uptime-test>
 
 .. toctree::
    :maxdepth:   3
 
-   Use an API test to test an endpoint TOGGLE <synthetics/api-test/api-test>
+   API tests for endpoints TOGGLE <synthetics/api-test/api-test>
 
 .. toctree::
    :maxdepth:   3
 
-   synthetics/test-kpis/test-kpis
+   Test status TOGGLE <synthetics/test-status/test-status>
 
 .. toctree::
    :maxdepth:   3

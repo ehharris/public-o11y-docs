@@ -25,7 +25,7 @@ You can also export and monitor data from sources running in your Azure environm
      - :strong:`Description`
 
    * - :ref:`get-started-k8s`
-     - :ref:`infrastructure-k8s`
+     - :ref:`infrastructure-k8s-nav`
      - Collect metrics and logs from Kubernetes clusters running in Azure Kubernetes Service.
 
    * - - :ref:`get-started-linux`
@@ -154,10 +154,6 @@ The Azure integration adds the ``azure_resource_id`` dimension to metrics receiv
 ``<subscription_id>/<resource_group_name>/<resource_provider_namespace>/<resource_name>``
 
 The Azure integration truncates the dimension value to 256 bytes, which is the maximum length of a Splunk Observability Cloud dimension value.
-
-If you install collectd on an Azure Compute Virtual Machine instance using the
-:new-page:`standard install script <https://github.com/signalfx/signalfx-collectd-installer>`,
-the installation automatically adds the ``azure_resource_id``.
 
 Azure integration generic dimensions
 --------------------------------------------------------------------------------

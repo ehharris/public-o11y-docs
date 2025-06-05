@@ -35,7 +35,20 @@ Learn more about the Splunk Observability Cloud data model at :ref:`data-model`.
     <h2>How does the OpenTelemetry Collector work?<a name="collector-intro-how" class="headerlink" href="#collector-intro-how" title="Permalink to this headline">¶</a></h2>
   </embed>
 
+
+
+.. raw:: html
+
+   <div class="include-start" id="collector-works.rst"></div>
+
 .. include:: /_includes/collector-works.rst
+
+.. raw:: html
+
+   <div class="include-stop" id="collector-works.rst"></div>
+
+
+
 
 .. raw:: html
 
@@ -58,7 +71,7 @@ The Splunk Distribution of the OpenTelemetry Collector is a distribution of the 
   Splunk officially supports the Splunk Distribution of the OpenTelemetry Collector. 
   Splunk only provides best-effort support for the upstream OpenTelemetry Collector. See :ref:`using-upstream-otel` for more information.
 
-While Splunk Observability Cloud would work with any of the Collector versions as it's native OTel, Splunk can provide better support response for the Splunk distribution. Any changes to the Contrib or Base OpenTelemetry Collector are required to go through the open-source vetting process, which can take some time. If you use the Splunk version, updates and hot fixes are under Splunk control. Note that all major additions to the Splunk version of the Collector do eventually make their way into the Contrib version.
+Splunk Observability Cloud is OTel native and works with any of the Collector versions. However, Splunk can provide better support response for the Splunk distribution. Any changes to the Contrib or Base OpenTelemetry Collector are required to go through the open-source vetting process, which can take some time. If you use the Splunk version, updates and hot fixes are under Splunk control. Note that all major additions to the Splunk version of the Collector do eventually make their way into the Contrib version.
 
 Also, the customizations in the Splunk distribution include these additional features:
 
@@ -66,6 +79,8 @@ Also, the customizations in the Splunk distribution include these additional fea
 * Discovery mode for metric sources
 * Automatic discovery and configuration
 * Fluentd for log capture, deactivated by default
+
+.. note:: Check out the :new-page:`Splunk Distribution of the OpenTelemetry Collector repo in GitHub <https://github.com/signalfx/splunk-otel-collector>` for more details.
 
 .. raw:: html
 

@@ -23,7 +23,20 @@ Latest updates automatically whenever Splunk RUM releases a new version. In pre-
 Check compatibility and requirements
 ===============================================
 
+
+
+.. raw:: html
+
+   <div class="include-start" id="requirements/ios.rst"></div>
+
 .. include:: /_includes/requirements/ios.rst
+
+.. raw:: html
+
+   <div class="include-stop" id="requirements/ios.rst"></div>
+
+
+
 
 
 .. _rum-ios-install:
@@ -77,21 +90,6 @@ To install the iOS RUM library using the Swift Package Manager (SPM) follow thes
    ``https://github.com/signalfx/splunk-otel-ios``
 
 2. Select :guilabel:`Add Package` to install the package.
-
-.. note:: If you are also using CocoaPods, add the SPM package to the app's project, not to the Pods project in your workspace.
-
-CocoaPods
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-To install the iOS RUM library using CocoaPods follow these steps:
-
-1. Make sure your project is using CocoaPods.
-
-2. Add ``pod 'SplunkOtel`` to your Podfile.
-
-3. Run ``pod install --repo-update`` in the directory where the Podfile is located.
-
-4. After installing the pod, make sure to open the .xcworkspace file instead of the .xcodeproj file.
 
 
 .. _rum-ios-initialize:
